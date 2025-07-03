@@ -30,6 +30,16 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+# Node modules
+node_modules/
+
+# Package lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# npm debug files
+npm-debug.log*
 
 # VS Code Extension specific
 out/
