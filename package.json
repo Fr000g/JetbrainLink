@@ -1,0 +1,68 @@
+{
+  "name": "jetbrains-link",
+  "displayName": "JetBrains Link",
+  "description": "Synchronize open VS Code tabs with JetBrains IDEs and position cursor precisely",
+  "version": "1.0.0",
+  "publisher": "yourpublisher",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "jetbrains",
+    "ide",
+    "synchronization",
+    "cursor",
+    "tabs"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "jetBrainsLink.sync",
+        "title": "Sync to JetBrains IDE",
+        "category": "JetBrains Link"
+      }
+    ],
+    "configuration": {
+      "title": "JetBrains Link",
+      "properties": {
+        "jetBrainsLink.executablePath": {
+          "type": "string",
+          "default": "/usr/local/bin/goland",
+          "description": "Full path to your JetBrains IDE executable. Examples: macOS: '/usr/local/bin/goland', Windows: 'C:\\Program Files\\JetBrains\\GoLand 2024.1\\bin\\goland64.exe', Linux: '/opt/GoLand/bin/goland.sh'"
+        },
+        "jetBrainsLink.commandArguments": {
+          "type": "string",
+          "default": "--line {line} --column {column} {paths}",
+          "description": "Command-line arguments template. Placeholders: {line} = cursor line, {column} = cursor column, {paths} = space-separated file paths (active file will be last)"
+        },
+        "jetBrainsLink.showStatusBarButton": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show a button in the status bar for quick access to sync command"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "@types/vscode": "^1.74.0",
+    "typescript": "^4.9.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourrepo/jetbrains-link.git"
+  },
+  "license": "MIT"
+} 
